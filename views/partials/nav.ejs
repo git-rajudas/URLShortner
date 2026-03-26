@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/output.css">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+
+<nav class="flex items-center justify-between px-6 py-5 shadow-md w-full ">
+    <div id="logo-menu" class="flex items-center justify-between gap-10">
+        <div class="text-2xl px-4 flex items-center justify-between gap-2 ">
+            <i class="ri-links-line"></i>
+        </div>
+        <div id="menu" class="hidden sm:flex items-center justify-between gap-5">
+            <a class="py-3 px-6 rounded hover:bg-gray-200 active:bg-gray-300" href="/">Home</a>
+            <!-- <a class="py-3 px-6 rounded hover:bg-gray-200 active:bg-gray-300" href="/dashboard">Dashboard</a> -->
+            <a class="py-3 px-6 rounded hover:bg-gray-200 active:bg-gray-300" href="/links">Created Links</a>
+            <!-- <a class="py-3 px-6 rounded hover:bg-gray-200 active:bg-gray-300" href="/myaccount">My Account</a> -->
+        </div>
+    </div>
+    <div id="auth-menu" class="hidden sm:flex items-center justify-between gap-5">
+        <div id="auth-menu" class="hidden sm:flex items-center gap-5">
+
+            <% if (user) { %>
+
+                <!-- Logged In -->
+                <span class="px-6 py-3 bg-gray-200 rounded italic font-mono border border-black">
+                    <i class="ri-user-3-line"></i> Welcome: <%= user.username %>
+                </span>
+
+                <a class="px-6 py-3 bg-red-500 text-white rounded" href="/logout">
+                    Logout <i class="ri-logout-circle-r-line"></i>
+                </a>
+
+                <% } else { %>
+
+                    <!-- Not Logged In -->
+                    <a class="px-8 py-3 bg-black text-white rounded" href="/login">
+                        Login
+                    </a>
+
+                    <a class="px-8 py-3 bg-white text-black rounded hover:bg-gray-200" href="/signup">
+                        Signup — <span class="italic font-semibold">its free</span>
+                    </a>
+
+                    <% } %>
+
+        </div>
+    </div>
+    <div class="sm:hidden text-2xl">&#9776;</div>
+</nav>

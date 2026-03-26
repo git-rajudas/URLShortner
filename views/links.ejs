@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Created Links</title>
+    <link rel="stylesheet" href="/output.css" />
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <%- include('partials/nav') %>
+        <div id="link-main"
+            class="w-full flex flex-col flex-grow items-center justify-center text-center gap-4 mt-10 sm:mt-20 px-10 sm:px-20">
+            <div id="header"
+                class="w-full flex flex-col items-center justify-between gap-4 sm:flex-row sm:justify-between ">
+                <div class="flex flex-col items-start justify-between gap-3 ">
+                    <h1 class="text-3xl font-[EB-Garamond] font-bold">All Shortened Links</h1>
+                    <p class="text-base text-start">Create and manage your shortened links here.</p>
+                </div>
+                <div id="create-link-btn"
+                    class="w-full bg-black px-4 py-3 text-white rounded mt-5 sm:w-auto cursor-pointer">
+                    <a class="cursor-pointer" href="/createlink">Create New Link</a>
+                </div>
+            </div>
+            <div id="divider"
+                class="flex flex-col items-center justify-center border border-[#666666] border-solid w-full mt-3">
+            </div>
+
+                <%# Link Counts %>
+
+                    <% if (urls && urls.length> 0) { %>
+
+                        <div id="link-count" class="w-full flex flex-col sm:items-start items-center py-2">
+                            <p class="text-base font-semibold text-start">
+                                Total Links: <span>
+                                    <%= urls.length %>
+                                </span>
+                            </p>
+                        </div>
+
+                        <%# Start List of Link Box %>
+
+                            <div id="list-of-created-link"
+                                class="w-full flex flex-col items-center justify-between gap-5" style="display: block;">
+
+                                <%# List Of links %>
+
+                                    <% urls.forEach((url)=> { %>
+
+                                        <div 
+                                            class="flex flex-col items-center justify-between w-full border border-[#666666] border-solid rounded px-4 py-6 mt-2 sm:flex-row">
+
+                                            <div 
+                                                class="w-full mt-3 sm:mt-0 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center sm:justify-start sm:gap-5">
+
+                                                <div 
+                                                class="w-8 sm:w-10 h-auto sm:h-auto rounded-full border border-black overflow-hidden flex items-center justify-center bg-white"> 
+                                                    <img 
+                                                        class="w-4 sm:w-6 h-4 sm:h-6 object-contain" 
+                                                        src="https://www.google.com/s2/favicons?domain=<%= url.redirectUrl %>&sz=64" 
+                                                        alt="favicon" />
+                                                    
+                                                </div>
+
+                                                <div 
+                                                    class="flex flex-col items-start justify-between gap-2">
+
+                                                    <div 
+                                                        class="flex flex-col items-start justify-between gap-3">
+
+                                                        <div  class="flex flex-row items-start justify-between gap-3">
+                                                            <h1 class="text-base font-semibold">
+                                                                Short Link :
+                                                            </h1>
+                                                            <a href="/<%= url.shortId %>" class="text-base italic">
+                                                            <%= protocol + '://'+ host + "/"+ url.shortId %>
+                                                            </a>
+                                                            <button onclick="copyLink('<%= protocol %>://<%= host %>/<%= url.shortId %>')">
+                                                                <i class="ri-file-copy-line"></i>Copy
+                                                            </button>
+                                                        </div>
+
+                                                        <a class="text-start" href="<%= url.redirectUrl %>" target="_blank">
+                                                             <%= url.redirectUrl.length > 35 ? url.redirectUrl.slice(0, 35) + "..." : url.redirectUrl %>
+                                                        </a>
+
+                                                        
+                                                    </div>
+
+                                                    <a href=""></a>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div 
+                                                class="w-full mt-3 sm:mt-0 flex flex-col items-start sm:items-center justify-between gap-3 sm:flex-row">
+
+                                                <div 
+                                                    class="flex items-center justify-start sm:justify-center gap-2 w-full text-start px-4 py-3 text-black text-base cursor">
+                                                    <img class="h-5 w-5 sm:w-6 sm:h-auto" src="/images/undraw_pointer.svg"
+                                                        alt="">
+                                                    <p>Clicks : <%= url.visitHistory.length %>
+                                                    </p>
+                                                </div>
+
+                                                <a href="/edit/<%= url.shortId %>"
+                                                    class="w-full text-start sm:text-center rounded px-4 py-3 border border-[#666666] text-black text-base cursor"
+                                                    id="link-info-btn">Edit Or Delete</a>
+
+                                                <a href="/details/<%= url.shortId %>" 
+                                                    class="w-full text-start sm:text-center rounded px-4 py-3 bg-[#f0f0f0] border border-[#666666] text-black text-base cursor"
+                                                    id="link-info-btn">View Details</a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <%# End List of Link Box %>
+
+                            </div>
+
+                            <% } %>
+
+
+
+
+                                <div id="img-end"
+                                    class="w-full flex flex-col items-center justify-between gap-3 mb-10 sm:mb-20">
+                                    <img class="w-full h-auto sm:w-[30%] opacity-25"
+                                        src="/images/greetings-Ba8Y3FiR.png" alt="">
+                                    <p class="text-base font-semibold italic">You have reached end of your list</p>
+                                </div>
+
+                                <div style="display: none;">
+                                    <p>No links found. Start creating your first shortened link now!</p>
+                                </div>
+        </div>
+
+
+
+
+
+
+
+        <%- include('partials/footer') %>
+
+<script>
+    function copyLink(link) {
+        navigator.clipboard.writeText(link);
+}
+</script>
+</body>
+
+</html>

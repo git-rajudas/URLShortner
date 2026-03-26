@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <div id="account-main">
+        <div id="heading-btn">
+            <div id="acc-heading">
+                <h1>Your Account</h1>
+                <p>Manage your account settings and preferences</p>
+            </div>
+            <div>
+                <button id="logout-btn">Logout Account</button>
+            </div>
+        </div>
+
+        <div id="general">
+            <div id="general-heading">
+                <h2>General Settings</h2>
+                <p>Keep Your Personal Information Up to Date</p>
+            </div>
+            <div id="general-info">
+                <h3>Name</h3>
+                <div id="user-name">Raju Das</div>
+                <h3>Email</h3>
+                <div id="user-email">raju.das@example.com</div>
+                <div id="edit-btn"><button>Edit Profile</button></div>
+            </div>
+        </div>
+
+
+        <div id="password">
+            <div id="password-heading">
+                <h1>Password</h1>
+                <p>Update your password at any time</p>
+            </div>
+            <div id="password-info">
+                <div id="password-btn"><button>Change Password</button></div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

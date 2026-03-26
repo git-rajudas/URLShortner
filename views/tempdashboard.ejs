@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body class="min-h-screen">
+    <%- include('partials/nav') %>
+    <div id="dash-main" class="w-full flex flex-col flex-grow items-center justify-between text-center gap-10 mt-20 mb-20 px-8 sm:px-10 ">
+        <div id="dashboard-top" class="w-full flex flex-col items-center justify-between gap-10">
+            <div id="user-account" class="w-full flex flex-col sm:flex-row items-center justify-between gap-5 py-5">
+                <div id="usergreeting" class="w-full flex flex-col items-start justify-between gap-2 ">
+                    <p id="greeting" class="italic font-mono uppercase text-xl">Greetings</p>
+                    <h1 class="font-mono uppercase text-3xl"><%= user.username %></h1>
+                    <p id="message">Its good to see you.</p>
+                </div>
+                <div id="manage-acc"  class="w-full text-center sm:text-center rounded px-5 sm:px-3 py-3 border border-[#666666] text-white bg-black text-base cursor-pointer">
+                    <a href="">Manage Account</a>
+                </div>
+            </div>
+            <div id="d-counts" class="w-full flex-col sm:flex-row items-center justify-between gap-5">
+                <div class="w-full sm:[33%] flex flex-col border border-black rounded px-2 py-2 gap-2 mt-3" id="links">
+                    <div class="text-xl"><i class="ri-link-unlink"></i></div>
+                    <div class="text-xl flex items-center justify-center gap-2">
+                        <h1>1</h1>
+                        <p>Link Created</p>
+                    </div>
+                </div>
+                <div class="w-full sm:[33%] flex flex-col border border-black rounded px-2 py-2 gap-2 mt-3" id="qr-code">
+                    <div class="text-xl"><i class="ri-qr-code-line"></i></div>
+                    <div class="text-xl flex items-center justify-center gap-2">
+                        <h1>1</h1>
+                        <p>QR Generated</p>
+                    </div>
+                </div>
+                <div class="w-full sm:[33%] flex flex-col border border-black rounded px-2 py-2 gap-2 mt-3" id="click">
+                    <div class="text-xl"><i class="ri-cursor-line"></i></div>
+                    <div class="text-xl flex items-center justify-center gap-2">
+                        <h1>1</h1>
+                        <p>Link Clicked</p>
+                    </div>
+                </div>
+            </div>
+            <div id="d-divider" class="w-full border border-black"></div>
+        </div>
+
+        <div id="dashboard-bottom" class="w-full flex flex-col items-center justify-between gap-10">
+            <div id="latest-links" class="w-full flex flex-col items-start justify-between gap-5">
+                <h1 class="text-2xl items-star justify-start">Latest Links</h1>
+                <button  class="w-full text-center sm:text-center rounded px-4 py-3 border border-[#666666] text-black text-base cursor">View All Links</button>
+            </div>
+            <div id="list-of-created-link" class="w-full flex flex-col items-center justify-between gap-5"
+                style="display: block;">
+                <div id="links-list"
+                    class="flex flex-col items-center justify-between w-full border border-[#666666] border-solid rounded px-4 py-6 mt-2 sm:flex-row">
+                    <div id="links-list-left"
+                        class="w-full mt-3 sm:mt-0 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center sm:justify-start sm:gap-5">
+                        <div id="link-icon" class="w-8 sm:w-10 h-8 sm:h-10 rounded-full border border-black sm:flex ">
+                            <img src="" alt="" /></div>
+                        <div id="link-info" class="flex flex-col items-start justify-between gap-2">
+                            <div id="link-title" class="flex flex-row items-center justify-between gap-3">
+                                <h1 class="text-xl font-bold">Google -</h1>
+                                <a href="" class="text-base italic">bit.link/id</a>
+                                <i class="ri-file-copy-line"></i>
+                            </div>
+                            <a href=""></a>
+                            <p class="text-base italic ">Updated on Sat Mar 14 2026</p>
+                        </div>
+                    </div>
+                    <div id="links-list-right"
+                        class="w-full mt-3 sm:mt-0 flex flex-col items-start sm:items-center justify-between gap-3 sm:flex-row">
+                        <div id="link-info-btn"
+                            class="flex items-center justify-start sm:justify-center gap-2 w-full text-start px-4 py-3 text-black text-base cursor">
+                            <img class="h-5 w-5 sm:w-6 sm:h-auto" src="/images/undraw_pointer.svg" alt="">
+                            <p>2 Clicks</p>
+                        </div>
+                        <button
+                            class="w-full text-start sm:text-center rounded px-4 py-3 border border-[#666666] text-black text-base cursor"
+                            id="link-info-btn">Edit Or Delete</button>
+                        <button
+                            class="w-full text-start sm:text-center rounded px-4 py-3 bg-[#f0f0f0] border border-[#666666] text-black text-base cursor"
+                            id="link-info-btn">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

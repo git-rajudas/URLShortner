@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+    <%- include('partials/nav') %>
+    <main id="signup-main"class="w-full flex-grow flex flex-col items-center justify-between mt-10 px-10 gap:5 sm:flex-row " >
+        <div id="signup-img" class="w-full mt-10 sm:mt-0 sm:flex-1">
+            <img class="w-[80%] h-auto" src="./images/greetings-Ba8Y3FiR.png" alt="" />
+        </div>
+        <div id="signup-form" class="flex flex-col items-start justify-between gap-5 w-full sm:px-20 sm:w-1/2 py-10 ">
+            <h2 class="text-3xl font-[EB-Garamond] font-semibold">Create Your Account</h2>
+            <form action="/signup" method="post" class=" w-full flex flex-col item-start justify-between gap-5 mt-2">
+                <div class="  w-full flex flex-col item-start justify-between gap-2 ">
+                    <label for="username" class="text-xl">Username</label>
+                    <input class="w-full px-4 py-3 outline-none border border-black" type="text" name="username" id="username" placeholder="username" />
+                </div>
+                <div class="  w-full flex flex-col item-start justify-between gap-2 ">
+                    <label for="email" class="text-xl">Your Email</label>
+                    <input class="w-full px-4 py-3 outline-none border border-black" type="email" name="email" id="email" placeholder="jonedoe@mail.com" />
+                </div>
+                <div class="  w-full flex flex-col item-start justify-between gap-2 ">
+                    <label for="password" class="text-xl">Password</label>
+                    <input class="w-full px-4 py-3 outline-none border border-black" type="password" name="password" id="password" placeholder="8+ Characters" />
+                </div>
+                <button class="w-full px-4 py-3 bg-black text-white cursor">Continue</button>
+            </form>
+            <p id="privacy-text" class="text-base">By continuing, I agree to the Terms of Use & Privacy Policy</p>
+            <p id="loginlink" class="text-base">Already have an Account? <a class="font-semibold cursor" href="/login">Try Login</a></p>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+
+</html>
