@@ -170,6 +170,3 @@ This project is licensed under the MIT License.
 
 GitHub: [https://github.com/git-rajudas](https://github.com/git-rajudas)
 
-
-Just say 👉 **“Make it FAANG-level”** 🚀
-```
