@@ -7,8 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // Logger
-const morgan = require("morgan");
-app.use(morgan('dev'));
+// const morgan = require("morgan");
+// app.use(morgan('dev'));
+
 
 // DB Connection
 
