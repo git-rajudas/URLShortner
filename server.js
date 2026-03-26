@@ -30,7 +30,7 @@ connectToMongoDB(process.env.DB_URL).then(() => {
 // CookieParser
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-
+app.set("trust proxy", 1); // trust first proxy for secure cookies
 
 // Express Middleware
 app.use(express.json());
