@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const jwt_secret = process.env.JWT_SECRET;
+const jwt_secret = process.env.jwt_secret;
 
 function isLoggedIn(req, res, next) {
   const token = req.cookies.token;

@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
 
-const jwt_secret = process.env.JWT_SECRET;
+const jwt_secret = process.env.jwt_secret;
 
 function requireLogin(req, res, next) {
   // console.log("Cookies:", req.cookies);
   const token = req.cookies.token;
 
   if (!token) {
-    // console.log("No token found");
+    console.log("No token found");
     return res.redirect("/login");
   }
 
@@ -16,7 +16,7 @@ function requireLogin(req, res, next) {
     req.user = decoded;
     next();
   } catch(e){
-    // console.log("JWT error:", e.message);
+    console.log("JWT error:", e.message);
     return res.redirect("/login");
   }
 }
