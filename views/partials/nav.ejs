@@ -44,5 +44,44 @@
 
         </div>
     </div>
-    <div class="sm:hidden text-2xl">&#9776;</div>
+    <button onclick="toggleMenu()" class="sm:hidden text-3xl">&#9776; </button>
 </nav>
+
+<div id="mobileMenu" class="sm:hidden hidden">
+
+    <div class=" flex flex-col px-6 py-5 shadow-md bg-white gap-3">
+
+        <a class="py-3 px-4 rounded hover:bg-gray-200" href="/">Home</a>
+        <a class="py-3 px-4 rounded hover:bg-gray-200" href="/links">Created Links</a>
+
+        <% if (user) { %>
+
+            <span class="px-4 py-3 bg-gray-200 rounded border border-black">
+                <i class="ri-user-3-line"></i>
+                <%= user.username %>
+            </span>
+
+            <a class="px-4 py-3 bg-red-500 text-white rounded" href="/logout">
+                Logout
+            </a>
+
+            <% } else { %>
+
+                <a class="px-4 py-3 bg-black text-white rounded" href="/login">Login</a>
+
+                <a class="px-4 py-3 bg-white text-black rounded border" href="/signup">
+                    Signup — its free
+                </a>
+
+                <% } %>
+    </div>
+</div>
+
+
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+    }
+</script>
