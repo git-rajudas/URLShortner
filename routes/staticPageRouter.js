@@ -47,6 +47,48 @@ pageRouter.get("/details/:id",requireLogin,async(req,res)=>{
 });
 
 
+pageRouter.get("/edit/:id",requireLogin,async(req,res)=>{
+    const url = await URL.findOne({ shortId: req.params.id, createdBy: req.user._id });
+    if(!url){
+        res.status(404).send("URL not found");
+    }
+    return res.render("edit",{url});
+});
+
+
+
+pageRouter.get("/delete/:id",requireLogin,async(req,res)=>{
+    const url = await URL.findOne({ shortId: req.params.id, createdBy: req.user._id });
+    if(!url){
+        res.status(404).send("URL not found");
+    }
+    await URL.deleteOne({ shortId: req.params.id, createdBy: req.user._id });
+    return res.redirect("/links");
+});
+
+
+pageRouter.post("/save/:id",requireLogin,async(req,res)=>{
+    const id = req.params.id;
+    const userId = req.user._id;
+    const title = req.body.title;
+    if(!title){
+        return res.status(400).send("Title is required");
+    }
+
+    const url = await URL.findOneAndUpdate(
+        { shortId: id, createdBy: userId },
+        { title: title},
+        { new: true}
+    );
+
+    if(!url){
+        return res.status(404).send("URL not found");
+    }
+
+    res.redirect("/links");
+});
+
+
 
 
 
