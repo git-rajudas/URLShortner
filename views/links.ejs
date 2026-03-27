@@ -57,9 +57,9 @@
                                                 class="w-full mt-3 sm:mt-0 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center sm:justify-start sm:gap-5">
 
                                                 <div 
-                                                class="w-8 sm:w-10 h-auto sm:h-auto rounded-full border border-black overflow-hidden flex items-center justify-center bg-white"> 
+                                                class="w-[50px] sm:w-[70px] h-auto rounded-full bg-zinc-200 p-1 border border-black overflow-hidden mt-1"> 
                                                     <img 
-                                                        class="w-4 sm:w-6 h-4 sm:h-6 object-contain" 
+                                                        class="blur-0 rounded-full w-full h-full" 
                                                         src="https://www.google.com/s2/favicons?domain=<%= url.redirectUrl %>&sz=64" 
                                                         alt="favicon" />
                                                     
@@ -71,15 +71,15 @@
                                                     <div 
                                                         class="flex flex-col items-start justify-between gap-3">
 
-                                                        <div  class="flex flex-row items-start justify-between gap-3">
+                                                        <div  class="flex flex-col sm:flex-row items-start justify-between gap-3">
                                                             <h1 class="text-base font-semibold">
                                                                 Short Link :
                                                             </h1>
-                                                            <a href="/<%= url.shortId %>" class="text-base italic">
-                                                            <%= protocol + '://'+ host + "/"+ url.shortId %>
+                                                            <a href="/<%= url.shortId %>" class="text-base text-blue-600 hover:underline break-all" target="_blank">
+                                                            <%= host + "/"+ url.shortId %>
                                                             </a>
                                                             <button onclick="copyLink('<%= protocol %>://<%= host %>/<%= url.shortId %>')">
-                                                                <i class="ri-file-copy-line"></i>Copy
+                                                                <i class="ri-file-copy-line"></i> Copy
                                                             </button>
                                                         </div>
 
