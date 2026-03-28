@@ -74,21 +74,28 @@
                                                             <%= url.title %>
                                                         </h1>
 
-                                                        <div  class="flex flex-col sm:flex-row items-start justify-between gap-3">
-                                                            <h1 class="text-base font-semibold">
-                                                                Short Link :
+                                                        <div  class="flex flex-col sm:flex-col items-start justify-between">
+                                                            <h1 class="text-base font-semibold text-start">
+                                                                    Short Link :
                                                             </h1>
-                                                            <a href="/<%= url.shortId %>" class="text-base text-blue-600 hover:underline break-all" target="_blank">
-                                                            <%= host + "/"+ url.shortId %>
-                                                            </a>
-                                                            <button onclick="copyLink('<%= protocol %>://<%= host %>/<%= url.shortId %>')">
-                                                                <i class="ri-file-copy-line"></i> Copy
-                                                            </button>
+                                                           <div csals="flex items-start justify-between gap-3">
+                                                                
+                                                                <a href="/<%= url.shortId %>" class="text-base text-start text-blue-600 hover:underline break-all" target="_blank">
+                                                                <%= host + "/"+ url.shortId %>
+                                                                </a>
+                                                                <button onclick="copyLink('<%= protocol %>://<%= host %>/<%= url.shortId %>')">
+                                                                    <i class="ri-file-copy-line"></i> Copy
+                                                                </button>
+                                                           </div>
+                                                           
                                                         </div>
 
-                                                        <a class="text-start" href="<%= url.redirectUrl %>" target="_blank">
+                                                        <div>
+                                                            <h1 class="text-base font-semibold text-start">Original Link :</h1>
+                                                            <a class="text-start" href="<%= url.redirectUrl %>" target="_blank">
                                                              <%= url.redirectUrl.length > 35 ? url.redirectUrl.slice(0, 35) + "..." : url.redirectUrl %>
-                                                        </a>
+                                                            </a>
+                                                        </div>
 
                                                         
                                                     </div>
