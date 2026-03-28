@@ -912,6 +912,18 @@ video {
   width: 100%;
 }
 
+.w-\[\]{
+  width: ;
+}
+
+.w-\[90\]{
+  width: 90;
+}
+
+.w-\[90\%\]{
+  width: 90%;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
