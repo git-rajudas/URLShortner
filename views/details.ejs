@@ -31,7 +31,7 @@
                                     <%= url.title %>
                                 </h1>
                                 <div
-                                    class="text-base font-semibold flex flex-row items-center justify-between gap-2 text-blue-500 ">
+                                    class="text-base font-semibold flex flex-row items-start justify-between gap-2 text-blue-500 ">
                                     <i class="ri-link"></i><a id="QrUrl" href="/<%= url.shortId %>" target="_blank">
                                         <%= protocol + '://' + host + "/" + url.shortId %>
                                     </a>
@@ -43,7 +43,7 @@
                         <!-- Destination URL  -->
                         <div class="flex flex-col items-start justify-between gap-1">
                             <h2 class="text-xl">Destination URL:</h2>
-                            <a href="<%= url.redirectUrl %>" target="_blank" class="text-base text-[#A1A1B2] italic">
+                            <a href="<%= url.redirectUrl %>" target="_blank" class="text-base text-[#A1A1B2] italic text-start">
                                 <%= url.redirectUrl.length> 35 ? url.redirectUrl.slice(0, 35) + "..." : url.redirectUrl
                                     %>
                             </a>
